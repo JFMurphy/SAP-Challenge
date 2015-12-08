@@ -1,0 +1,4 @@
+0. Lower numbered rules take precedence
+1.The player with the most matching colours wins (0 matching < 2 matching < 2 x 2 matching < 3 matching < 4 matching)
+2.The player with the higher product of numbers wins (Multiply each of the numbers of the tokens together)
+3.The player with the single best token wins (red < green < blue < yellow; 1 < 2 .. < 16; e.g. red 16 < green 1)

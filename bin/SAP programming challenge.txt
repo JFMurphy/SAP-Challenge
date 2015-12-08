@@ -1,0 +1,8 @@
+﻿Write a program to read and evaluate the winners from the list of games at pastebin.com/sP6NgZhf
+
+The first player winning can be interpreted as 0, the second as 1.
+This forms a binary sequence of 8-bit ASCII characters.
+Convert the game list to text to progress.
+
+Hint: The first 3 characters / 24 games translate to “SAP”.
+Use this to check your program.
