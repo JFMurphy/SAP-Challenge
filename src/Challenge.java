@@ -15,6 +15,8 @@ public class Challenge {
 		int count = 1576;
 		// String data = "";
 		String game;
+		//temp
+		int line = 1;
 
 		System.out.println("Enter data:");
 
@@ -42,14 +44,31 @@ public class Challenge {
 			player1.checkMatchingColours();
 			player2.checkMatchingColours();
 			
-			if (player1.getPrecedenceValue() > player2.getPrecedenceValue())
-				System.out.println("Player 1 wins!");
-			else if (player2.getPrecedenceValue() > player1.getPrecedenceValue())
-				System.out.println("Player 2 wins!");
-			else 
-				System.out.println("Go to next rule");
+			player1.checkProductOfTokens();
+			player2.checkProductOfTokens();
 			
-			Thread.sleep(450);
+			player1.checkBestTokenValue();
+			player2.checkBestTokenValue();
+			
+			
+			if (player1.getPrecedenceValue() > player2.getPrecedenceValue())
+				System.out.println("Player 1 wins! " + line);
+			else if (player2.getPrecedenceValue() > player1.getPrecedenceValue())
+				System.out.println("Player 2 wins! " + line);
+			else if (player1.getProductOfTokens() > player2.getProductOfTokens())
+				System.out.println("Rule 2: Player 1 wins! " + line);
+			else if (player2.getProductOfTokens() > player1.getProductOfTokens())
+				System.out.println("Rule 2: Player 2 wins! " + line);
+			else if (player1.getBestTokenValue() > player2.getBestTokenValue())
+				System.out.println("Rule 3: Player 1 wins! " + line);
+			else if (player2.getBestTokenValue() > player1.getBestTokenValue())
+				System.out.println("Rule 3: Player 2 wins!" + line);
+			else
+				System.out.println("I... what... uh... this is impossible! " + line);
+			
+			line++;
+			
+			//Thread.sleep(450);
 			
 		}
 
