@@ -81,9 +81,6 @@ public class Challenge {
 				binaryString = "";
 			}		
 			line++;
-			
-			//Thread.sleep(450);
-			
 		}
 		
 		System.out.println(message);
