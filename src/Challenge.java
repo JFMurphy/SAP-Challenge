@@ -13,10 +13,10 @@ public class Challenge {
 		ArrayList<String> data = new ArrayList<String>();
 
 		int count = 1576;
-		// String data = "";
-		String game;
-		//temp
 		int line = 1;
+		String game; /* A single game between two players */
+		String binaryString = "";
+		String message = "";
 
 		System.out.println("Enter data:");
 
@@ -51,40 +51,41 @@ public class Challenge {
 			player2.checkBestTokenValue();
 			
 			
-			if (player1.getPrecedenceValue() > player2.getPrecedenceValue())
-				System.out.println("Player 1 wins! " + line);
-			else if (player2.getPrecedenceValue() > player1.getPrecedenceValue())
-				System.out.println("Player 2 wins! " + line);
-			else if (player1.getProductOfTokens() > player2.getProductOfTokens())
-				System.out.println("Rule 2: Player 1 wins! " + line);
-			else if (player2.getProductOfTokens() > player1.getProductOfTokens())
-				System.out.println("Rule 2: Player 2 wins! " + line);
-			else if (player1.getBestTokenValue() > player2.getBestTokenValue())
-				System.out.println("Rule 3: Player 1 wins! " + line);
-			else if (player2.getBestTokenValue() > player1.getBestTokenValue())
-				System.out.println("Rule 3: Player 2 wins!" + line);
-			else
+			if (player1.getPrecedenceValue() > player2.getPrecedenceValue()) {
+				System.out.print("0");
+				binaryString += "0";
+			} else if (player2.getPrecedenceValue() > player1.getPrecedenceValue()) {
+				System.out.print("1");
+				binaryString += "1";
+			} else if (player1.getProductOfTokens() > player2.getProductOfTokens()) {
+				System.out.print("0");
+				binaryString += "0";
+			} else if (player2.getProductOfTokens() > player1.getProductOfTokens()) {
+				System.out.print("1");
+				binaryString += "1";
+			} else if (player1.getBestTokenValue() > player2.getBestTokenValue()) {
+				System.out.print("0");
+				binaryString += "0";
+			} else if (player2.getBestTokenValue() > player1.getBestTokenValue()) {
+				System.out.print("1");
+				binaryString += "1";
+			} else
 				System.out.println("I... what... uh... this is impossible! " + line);
 			
+			if (line == 8) {
+				int charCode = Integer.parseInt(binaryString, 2);
+				String str = new Character((char)charCode).toString();
+				message += str;
+				System.out.println("");
+				line = 0;
+				binaryString = "";
+			}		
 			line++;
 			
 			//Thread.sleep(450);
 			
 		}
-
-		for (int i = 0; i < 4; i++) {
-			System.out.println(player1.getTokens()[i]);
-		}
-
-		/*
-		 * Pseudo code
-		 * 
-		 * if (player1.numOfMathcingColors > player2.numOfMatchingColors) {
-		 * player1.outcome = win; binaryString += "0"; } else if (player2 has
-		 * more) { player2 wins; } else if (playerHaveSameAmount) {
-		 * moveToNextRule(); }
-		 * 
-		 * 
-		 */
+		
+		System.out.println(message);
 	}
 }
